@@ -58,8 +58,10 @@ namespace ConsoleEngine.Engine
                                     if (item1HitChar != " " && item2HitChar != " ")
                                     {
                                         hitconfirmed = true;
-                                        Item1.HitLocation = new Coordinate(HeightCheck, WidthCheck);
-                                        Item2.HitLocation = new Coordinate(HeightCheck, WidthCheck);
+                                        //Item1.HitLocation = new Coordinate(HeightCheck, WidthCheck);
+                                        //Item2.HitLocation = new Coordinate(HeightCheck, WidthCheck);
+                                        Item1.HitLocation = new Coordinate(WidthCheck, HeightCheck);
+                                        Item2.HitLocation = new Coordinate(WidthCheck, HeightCheck);
                                     }
 
                                 }
@@ -110,8 +112,10 @@ namespace ConsoleEngine.Engine
                                 if (item1HitChar != " " && item2HitChar != " ")
                                 {
                                     hitconfirmed = true;
-                                    itemtoTest.HitLocation = new Coordinate(HeightCheck, WidthCheck);
-                                    Item2.HitLocation = new Coordinate(HeightCheck, WidthCheck);
+                                    //itemtoTest.HitLocation = new Coordinate(HeightCheck, WidthCheck);
+                                    //Item2.HitLocation = new Coordinate(HeightCheck, WidthCheck);
+                                    itemtoTest.HitLocation = new Coordinate(WidthCheck, HeightCheck);
+                                    Item2.HitLocation = new Coordinate(WidthCheck, HeightCheck);
                                 }
 
                             }
