@@ -28,6 +28,11 @@ namespace ConsoleEngine.Engine
         public string[] ObjectShape;
 
         /// <summary>
+        /// String array defining the colors of a object
+        /// </summary>
+        public string[] ColourMap;
+
+        /// <summary>
         /// creates a definition on the object for collison detection only
         /// </summary>
         public string[] HitBox;
@@ -107,6 +112,27 @@ namespace ConsoleEngine.Engine
             OldPosition = SpawnPoint;
 
             ObjectShape = Objectshape;
+            AutoMovement = XyMovement;
+            Hit = false;
+
+            HitBox = ObjectShape;
+        }
+
+        /// <summary>
+        /// Create a Gameobject
+        /// </summary>
+        /// <param name="SpawnPoint">XY of Spawn</param>
+        /// <param name="Objectshape">Array containing the characters of the object</param>
+        /// <param name="ColourMap">Array containing the ColorMap of the object</param>
+        /// <param name="XyMovement">Movement of object per update regardless of control</param>
+        /// <param name="SB">Screen Buffer to attach to</param>
+        public GameObject(Coordinate SpawnPoint, string[] Objectshape, string[] Colourmap, Coordinate XyMovement, ScreenBuffer SB)
+        {
+            Position = SpawnPoint;
+            OldPosition = SpawnPoint;
+
+            ObjectShape = Objectshape;
+            ColourMap = Colourmap;
             AutoMovement = XyMovement;
             Hit = false;
 
