@@ -21,14 +21,15 @@ namespace ConsoleEngine.Engine
             Text = text;
             Position = position;
         }
+
         /// <summary>
         /// Text to display
         /// </summary>
         public string Text { get; set; }
+
         /// <summary>
         /// Position of text
         /// </summary>
         public Coordinate Position { get; set; }
-
     }
 }

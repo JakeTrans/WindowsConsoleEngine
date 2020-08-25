@@ -21,17 +21,15 @@ namespace ConsoleEngine
             X = x;
             Y = y;
         }
+
         /// <summary>
         /// X-axis location
         /// </summary>
         public int X { get; set; }
+
         /// <summary>
         /// Y-axis location
         /// </summary>
         public int Y { get; set; }
-
-
-
-
     }
 }

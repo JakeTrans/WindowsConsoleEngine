@@ -5,10 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-
 namespace ConsoleEngine.Engine
 {
-
     /// <summary>
     /// Class to run the Collision Detection element
     /// </summary>
@@ -27,6 +25,7 @@ namespace ConsoleEngine.Engine
         {
             HitableItems = ItemstoWatch.Where(x => x.Hit == false).ToList();
         }
+
         /// <summary>
         /// Run the detection to test if any GameObject has collided with another
         /// </summary>
@@ -63,9 +62,7 @@ namespace ConsoleEngine.Engine
                                         Item1.HitLocation = new Coordinate(WidthCheck, HeightCheck);
                                         Item2.HitLocation = new Coordinate(WidthCheck, HeightCheck);
                                     }
-
                                 }
-
                             }
                             if (hitconfirmed == true)
                             {
@@ -75,11 +72,8 @@ namespace ConsoleEngine.Engine
                         }
                     }
                 }
-
             }
-
         }
-
 
         /// <summary>
         /// Run the detection to test if any GameObject has collided with the GameObject in the Parameter
@@ -87,7 +81,6 @@ namespace ConsoleEngine.Engine
         /// <param name="itemtoTest">GameObject to Check</param>
         public void RunDetection(GameObject itemtoTest)
         {
-
             foreach (GameObject Item2 in HitableItems)
             {
                 if (itemtoTest != Item2)
@@ -117,9 +110,7 @@ namespace ConsoleEngine.Engine
                                     itemtoTest.HitLocation = new Coordinate(WidthCheck, HeightCheck);
                                     Item2.HitLocation = new Coordinate(WidthCheck, HeightCheck);
                                 }
-
                             }
-
                         }
                         if (hitconfirmed == true)
                         {
@@ -127,23 +118,8 @@ namespace ConsoleEngine.Engine
                             Item2.Hit = true;
                         }
                     }
-
-
-
-
                 }
-
-
-
-
-
-
             }
-
         }
     }
-
 }
-
-
-

@@ -22,7 +22,6 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public Coordinate Position { get; set; }
 
-
         /// <summary>
         /// String array defining the objects display
         /// </summary>
@@ -39,7 +38,7 @@ namespace ConsoleEngine.Engine
         public bool Hit { get; set; }
 
         /// <summary>
-        /// point of collision 
+        /// point of collision
         /// </summary>
         public Coordinate HitLocation { get; set; }
 
@@ -53,10 +52,10 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public int Height
         {
-            get {
-                return ObjectShape.Length ;
+            get
+            {
+                return ObjectShape.Length;
             }
-
         }
 
         /// <summary>
@@ -64,21 +63,19 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public int Width
         {
-            get {
+            get
+            {
                 int wd = 0;
                 foreach (string line in ObjectShape)
                 {
                     if (line.Length > wd)
                     {
                         wd = line.Length;
-                        
                     }
                 }
                 return wd;
             }
-
         }
-
 
         /// <summary>
         /// Create a Gameobject
@@ -91,13 +88,11 @@ namespace ConsoleEngine.Engine
             Position = SpawnPoint;
             OldPosition = SpawnPoint;
 
-
             ObjectShape = Objectshape;
             AutoMovement = new Coordinate(0, 0);
             Hit = false;
             HitBox = ObjectShape;
         }
-
 
         /// <summary>
         /// Create a Gameobject
@@ -111,12 +106,9 @@ namespace ConsoleEngine.Engine
             Position = SpawnPoint;
             OldPosition = SpawnPoint;
 
-
             ObjectShape = Objectshape;
             AutoMovement = XyMovement;
             Hit = false;
-
-
 
             HitBox = ObjectShape;
         }
@@ -130,25 +122,22 @@ namespace ConsoleEngine.Engine
             Position.X = Position.X + XyMoveBy.X;
 
             Position.Y = Position.Y + XyMoveBy.Y;
-
         }
+
         /// <summary>
         /// Move object based on Auto- movement property
         /// </summary>
         public void SelfMove()
         {
-           MoveObject(AutoMovement);
+            MoveObject(AutoMovement);
         }
 
         /// <summary>
         /// Clears object in buffer pre-destruction
         /// </summary>
-        public void  DestroyObject ()
+        public void DestroyObject()
         {
             ObjectShape = new string[] { " " };
         }
-
-
-
     }
 }

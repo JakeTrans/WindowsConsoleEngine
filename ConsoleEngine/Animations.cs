@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace ConsoleEngine.Engine
 {
-
     /// <summary>
     /// Class to build frame-by-frame Animations
     /// </summary>
@@ -28,7 +26,6 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public List<string[]> AnimationSteps;
 
-
         /// <summary>
         /// Creates a new animation
         /// </summary>
@@ -40,7 +37,6 @@ namespace ConsoleEngine.Engine
             Position = XYPosition;
 
             Ticks = 1;
-
         }
 
         /// <summary>
@@ -48,7 +44,8 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public bool AnimateFinished
         {
-            get {
+            get
+            {
                 if (Ticks > AnimationSteps.Count)
                 {
                     return true;
@@ -58,11 +55,6 @@ namespace ConsoleEngine.Engine
                     return false;
                 }
             }
-
         }
-
-
-
-
     }
 }

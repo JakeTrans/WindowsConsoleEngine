@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleEngine.Engine
 {
-
     /// <summary>
     /// Class to hold Control Detall
     /// </summary>
-    public class Controls : IDisposable 
+    public class Controls : IDisposable
     {
         /// <summary>
         /// Task to check if conrtols typed
         /// </summary>
-        Task ControllerTask;
+        private Task ControllerTask;
 
         /// <summary>
         /// List of Controls to Check
@@ -33,9 +31,7 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public Controls()
         {
-
             Gamecontrols = new List<Control>();
-
 
             ControllerTask = new Task(new Action(RunController));
         }
@@ -46,8 +42,8 @@ namespace ConsoleEngine.Engine
         public void Activate()
         {
             ControllerTask.Start();
-
         }
+
         /// <summary>
         /// Pauses the Controller Task
         /// </summary>
@@ -64,20 +60,20 @@ namespace ConsoleEngine.Engine
             IsRunning = true;
             do
             {
-            ConsoleKeyInfo keypress = new ConsoleKeyInfo();
-            keypress = Console.ReadKey(true);
-            foreach (Control  cont in Gamecontrols)
-            {
-               if (cont.KeyAssigned == keypress.Key)
+                ConsoleKeyInfo keypress = new ConsoleKeyInfo();
+                keypress = Console.ReadKey(true);
+                foreach (Control cont in Gamecontrols)
                 {
-                    cont.FunctToRun.Invoke();
-
+                    if (cont.KeyAssigned == keypress.Key)
+                    {
+                        cont.FunctToRun.Invoke();
+                    }
                 }
-            }
-            } while (IsRunning == true); 
+            } while (IsRunning == true);
         }
 
         #region IDisposable Support
+
         private bool disposedValue = false; // To detect redundant calls
 
         /// <summary>
@@ -119,7 +115,8 @@ namespace ConsoleEngine.Engine
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
-        #endregion
+
+        #endregion IDisposable Support
     }
 
     /// <summary>
@@ -148,6 +145,4 @@ namespace ConsoleEngine.Engine
         /// </summary>
         public Action FunctToRun { get; set; }
     }
-
-
 }

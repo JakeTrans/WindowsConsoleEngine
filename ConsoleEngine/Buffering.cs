@@ -11,16 +11,13 @@ namespace ConsoleEngine.Engine
     /// </summary>
     public class ScreenBuffer
     {
-
         //https://stackoverflow.com/questions/2743260/is-it-possible-to-write-to-the-console-in-colour-in-net
         public int Width { get; set; }
+
         public int Height { get; set; }
-        
 
         public List<Animation> AnimatationtoRUN;
         public List<FixedText> FixedText;
-
-
 
         /// <summary>
         /// Creates a ScreenBuffer Object
@@ -37,16 +34,12 @@ namespace ConsoleEngine.Engine
             FixedText = new List<FixedText>();
         }
 
-
-
-
-
         //initiate important variables
         public char[,] screenBufferArray; //main buffer array
+
         public string screenBuffer; //buffer as string (used when drawing)
         public Char[] arr; //temporary array for drawing string
         public int i = 0; //keeps track of the place in the array to draw to
-
 
         /// <summary>
         /// Write text it to the buffer (for one refresh
@@ -57,7 +50,7 @@ namespace ConsoleEngine.Engine
         {
             //split text into array
             arr = text.ToCharArray(0, text.Length);
-            //iterate through the array, adding values to buffer 
+            //iterate through the array, adding values to buffer
             i = 0;
             foreach (char c in arr)
             {
@@ -73,14 +66,13 @@ namespace ConsoleEngine.Engine
         /// <param name="XY"></param>
         private void Draw(string[] textlines, Coordinate XY)
         {
-
             for (int row = 0; row < textlines.Length; i++)
             {
                 string text = textlines[row];
 
                 //split text into array
                 arr = text.ToCharArray(0, text.Length);
-                //iterate through the array, adding values to buffer 
+                //iterate through the array, adding values to buffer
                 i = 0;
                 foreach (char c in arr)
                 {
@@ -89,7 +81,6 @@ namespace ConsoleEngine.Engine
                 }
                 row++;
             }
-
         }
 
         /// <summary>
@@ -103,7 +94,7 @@ namespace ConsoleEngine.Engine
             {
                 if (MTAni.AnimateFinished == false)
                 {
-                    Draw(MTAni.AnimationSteps[MTAni.Ticks - 1],MTAni.Position);
+                    Draw(MTAni.AnimationSteps[MTAni.Ticks - 1], MTAni.Position);
                     MTAni.Ticks = MTAni.Ticks + 1;
                 }
             }
@@ -112,9 +103,8 @@ namespace ConsoleEngine.Engine
 
             foreach (FixedText FixText in FixedText)
             {
-              Draw(FixText.Text, FixText.Position);
+                Draw(FixText.Text, FixText.Position);
             }
-
 
             screenBuffer = "";
             //iterate through buffer, adding each value to screenBuffer
@@ -146,13 +136,12 @@ namespace ConsoleEngine.Engine
             DrawScreen();
         }
 
-
         /// <summary>
         /// Process to run at the end of your game to play any final Animation
         /// </summary>
         /// <param name="RefreshRate">How fast the screen should refresh</param>
         /// <param name="objlist">Master list of Objects that will be drawn</param>
-        public void  FinishAnimations(int RefreshRate, List<GameObject> objlist)
+        public void FinishAnimations(int RefreshRate, List<GameObject> objlist)
         {
             List<Animation> Unfinshedanimation;
             do
@@ -161,14 +150,9 @@ namespace ConsoleEngine.Engine
                 Unfinshedanimation = AnimatationtoRUN.Where(o => o.AnimateFinished == false).ToList();
                 if (Unfinshedanimation.Count != 0)
                 {
-
                     UpdateScreen(objlist);
-
                 }
             } while (Unfinshedanimation.Count != 0);
         }
-        
-
     }
-
 }
